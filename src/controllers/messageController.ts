@@ -5,7 +5,7 @@ import prisma from '../config/db';
 export const getMessages = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
     const userId = req.user!.id;
-    const { otherUserId } = req.params;
+    const otherUserId = req.params.otherUserId as string;
 
     const messages = await prisma.message.findMany({
       where: {
