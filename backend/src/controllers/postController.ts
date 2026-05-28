@@ -49,7 +49,7 @@ export const getPosts = async (req: AuthRequest, res: Response): Promise<void> =
 export const createComment = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
     const userId = req.user!.id;
-    const { postId } = req.params;
+    const postId = req.params.postId as string;
     const { content } = req.body;
 
     if (!content) {
