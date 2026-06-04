@@ -17,7 +17,7 @@ export const getPendingUsers = async (req: AuthRequest, res: Response): Promise<
 export const updateUserStatus = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
     const targetUserId = req.params.targetUserId as string;
-    const status = req.body.status as string;
+    const status = req.body.status as any;
     const updatedUser = await prisma.user.update({
       where: { id: targetUserId },
       data: { status }
