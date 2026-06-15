@@ -31,7 +31,13 @@ import messageRoutes from './routes/messageRoutes';
 
 // Middleware
 app.use(helmet());
-app.use(cors());
+// Allow specific frontend only
+app.use(cors({
+    origin: "https://vercel.com/tendaimushaya3-3329s-projects/au-engineers-forum"
+}));
+
+// Or allow any frontend (development only)
+// app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
